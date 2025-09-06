@@ -1,0 +1,49 @@
+.policyModal {
+  position: relative;
+}
+
+.modalContent {
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.policyContent {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 16px;
+    color: #1b365d;
+  }
+
+  p {
+    margin-bottom: 16px;
+    line-height: 1.7;
+  }
+
+  ul,
+  ol {
+    margin-bottom: 16px;
+    padding-left: 24px;
+
+    li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+  }
+
+  strong {
+    color: #1b365d;
+    font-weight: 600;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+}
