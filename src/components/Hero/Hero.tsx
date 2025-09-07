@@ -86,11 +86,13 @@ const Hero: React.FC = () => {
             }}
           >
             <img
-              src="/assets/logo-with-name-at-bottom.png"
+              src="/assets/logo.png"
               alt="Smaran Foundation Logo"
               style={{
                 height: isMobile ? 80 : 120,
-                width: "auto",
+                width: isMobile ? 80 : 120,
+                borderRadius: "50%",
+                objectFit: "cover",
                 filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))",
               }}
             />
@@ -128,8 +130,9 @@ const Hero: React.FC = () => {
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
               animationDelay: "0.2s",
-              fontSize: isMobile ? "1.75rem" : undefined,
-              lineHeight: isMobile ? 1.2 : undefined,
+              fontSize: isMobile ? "1.75rem" : "2.5rem",
+              lineHeight: 1.2,
+              whiteSpace: "nowrap",
             }}
           >
             Welcome to Smaran Foundation!

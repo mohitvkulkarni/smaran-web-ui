@@ -113,7 +113,9 @@ const Header: React.FC = () => {
                 alt="Smaran Foundation Logo"
                 style={{
                   height: 40,
-                  width: "auto",
+                  width: 40,
+                  borderRadius: "50%",
+                  objectFit: "cover",
                   transition: "all 0.3s ease-in-out",
                 }}
               />
@@ -124,10 +126,10 @@ const Header: React.FC = () => {
                   fontWeight: 700,
                   color: theme.palette.primary.main,
                   transition: "color 0.3s ease-in-out",
-                  display: { xs: "none", sm: "block" },
+                  fontSize: { xs: "1rem", sm: "1.25rem" },
                 }}
               >
-                SMARAN
+                Smaran Foundation
               </Typography>
             </Box>
 
