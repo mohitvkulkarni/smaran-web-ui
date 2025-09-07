@@ -69,12 +69,12 @@ const Footer: React.FC<FooterProps> = ({ onOpenPolicy }) => {
                 }}
               />
               <Link
-                href="mailto:info@smaranfoundation.com"
+                href="mailto:info@smaranfoundation.org"
                 color="inherit"
                 underline="hover"
                 sx={{ fontSize: "0.875rem" }}
               >
-                info@smaranfoundation.com
+                info@smaranfoundation.org
               </Link>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center" }}>

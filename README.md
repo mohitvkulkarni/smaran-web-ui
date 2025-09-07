@@ -164,4 +164,4 @@ This project is proprietary to Smaran Foundation. All rights reserved.
 
 ## Contact
 
-For questions or support, contact: info@smaranfoundation.com
+For questions or support, contact: info@smaranfoundation.org

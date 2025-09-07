@@ -715,7 +715,7 @@ export const PRIVACY_POLICY = `
   
   <p class="mb-4">Our website is an <strong>informational platform only</strong>. It does not include: Forms for data submission, online donation portals, subscription or mailing list services, advertising or tracking technologies (e.g., cookies, analytics tools) for profiling, collecting or distributing data. Any form of engagement with us — whether to explore collaborations, volunteer opportunities, or community initiatives — happens through direct communication initiated via email or other mutually agreed channels. Therefore, no user data is gathered or stored when you visit our website.</p>
   
-  <p class="mb-4">If you choose to contact us via email (at <strong>info@smaranfoundation.com</strong>), we may receive and review the information you voluntarily provide. Such details are used exclusively to respond to your query, and are not stored in any database, used for profiling, or shared with third parties. We do not build or maintain mailing lists, and we do not send bulk communication.</p>
+  <p class="mb-4">If you choose to contact us via email (at <strong>info@smaranfoundation.org</strong>), we may receive and review the information you voluntarily provide. Such details are used exclusively to respond to your query, and are not stored in any database, used for profiling, or shared with third parties. We do not build or maintain mailing lists, and we do not send bulk communication.</p>
   
   <p class="mb-4">We deeply value consent, respect for boundaries, and the right to privacy — especially when working with vulnerable groups. These values influence not only our digital practices but also our offline work in the field. We are mindful of the information shared with us during community work and handle such details with integrity, confidentiality, and care.</p>
   
@@ -723,7 +723,7 @@ export const PRIVACY_POLICY = `
   
   <p class="mb-4">As our operations evolve — particularly if we introduce donation options or volunteer registrations online — we will update this policy transparently and in compliance with legal standards. Rest assured, any future data collection will be conducted with informed consent, clarity of purpose, and user rights at the center.</p>
   
-  <p class="mb-4">If you have any questions, privacy concerns, or wish to collaborate with us in our mission, please contact us at: <strong>info@smaranfoundation.com</strong></p>
+  <p class="mb-4">If you have any questions, privacy concerns, or wish to collaborate with us in our mission, please contact us at: <strong>info@smaranfoundation.org</strong></p>
   
   <p>We thank you for engaging with our work. Smaran is powered by trust, empathy, and the shared belief that small, thoughtful actions — when done together — can leave a lasting impact.</p>
 `;
@@ -743,7 +743,7 @@ export const TERMS_OF_SERVICE = `
   
   <p class="mb-4">We do not guarantee uninterrupted access to our website or freedom from errors, viruses, or other disruptions. While we make reasonable efforts to maintain the integrity and availability of our platform, we do not hold liability for any technical failure or loss you may incur while visiting or attempting to interact with our site.</p>
   
-  <p class="mb-4">Your engagement with Smaran through this platform is rooted in trust, goodwill, and mutual respect. If you wish to collaborate, volunteer, or seek information beyond what is available here, we encourage direct communication via our official email: <strong>info@smaranfoundation.com</strong>. Any future changes to these Terms of Service will be updated here, and we advise visitors to periodically review this page to remain informed.</p>
+  <p class="mb-4">Your engagement with Smaran through this platform is rooted in trust, goodwill, and mutual respect. If you wish to collaborate, volunteer, or seek information beyond what is available here, we encourage direct communication via our official email: <strong>info@smaranfoundation.org</strong>. Any future changes to these Terms of Service will be updated here, and we advise visitors to periodically review this page to remain informed.</p>
   
   <p>Thank you for your interest in Smaran and for supporting a vision of inclusive, ethical, and community-rooted development.</p>
 `;
