@@ -97,7 +97,7 @@ const Contact: React.FC = () => {
               mb: 3,
             }}
           >
-            Get In Touch
+            Let's Start a Conversation
           </Typography>
 
           <Typography
@@ -125,7 +125,7 @@ const Contact: React.FC = () => {
               info@smaranfoundation.org
             </a>{" "}
             or call us at our Indian office @ +91-9663038407 / +91-8217492013 or
-            submit a message below. One of us will get in touch.
+            submit a message below. We'll reach out to you soon.
           </Typography>
         </Box>
 

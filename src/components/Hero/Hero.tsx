@@ -218,7 +218,7 @@ const Hero: React.FC = () => {
                 transition: "all 0.3s ease-in-out",
               }}
             >
-              Get In Touch
+              Connect With Us
             </Button>
           </Box>
         </Box>
