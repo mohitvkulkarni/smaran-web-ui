@@ -51,10 +51,17 @@ const Header: React.FC = () => {
               color: "inherit",
               backgroundColor:
                 location.pathname === link.href
-                  ? "primary.light"
+                  ? "primary.main"
                   : "transparent",
               "&:hover": {
-                backgroundColor: "primary.light",
+                backgroundColor:
+                  location.pathname === link.href
+                    ? "primary.dark"
+                    : "rgba(46, 82, 102, 0.1)",
+                "& .MuiListItemText-primary": {
+                  color:
+                    location.pathname === link.href ? "white" : "primary.main",
+                },
               },
             }}
           >
@@ -65,7 +72,7 @@ const Header: React.FC = () => {
                   fontWeight: location.pathname === link.href ? 600 : 500,
                   color:
                     location.pathname === link.href
-                      ? "primary.main"
+                      ? "white"
                       : theme.palette.text.primary,
                 },
               }}
