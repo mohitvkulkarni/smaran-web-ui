@@ -26,7 +26,7 @@ const About: React.FC = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.1 }
+      { threshold: isMobile ? 0.05 : 0.1 }
     );
 
     if (sectionRef.current) {
@@ -34,7 +34,7 @@ const About: React.FC = () => {
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [isMobile]);
 
   return (
     <Box
@@ -84,8 +84,10 @@ const About: React.FC = () => {
                 color: theme.palette.text.secondary,
                 maxWidth: "900px",
                 mx: "auto",
-                lineHeight: 1.7,
+                lineHeight: { xs: 1.8, md: 1.7 },
                 fontWeight: 300,
+                fontSize: { xs: "1.1rem", md: "1.25rem" },
+                px: { xs: 2, md: 0 },
               }}
             >
               We are a collective of millennials — lawyers, psychologists,
@@ -100,12 +102,17 @@ const About: React.FC = () => {
             </Typography>
           </Box>
 
-          <Grid container spacing={4} sx={{ mb: 4, alignItems: "center" }}>
-            <Grid item xs={12} md={6}>
+          <Grid
+            container
+            spacing={{ xs: 3, md: 4 }}
+            sx={{ mb: 4, alignItems: "center" }}
+          >
+            <Grid item xs={12} md={6} order={{ xs: 2, md: 1 }}>
               <Box
                 sx={{
                   display: "flex",
                   justifyContent: "center",
+                  px: { xs: 1, md: 0 },
                 }}
               >
                 <img
@@ -114,29 +121,31 @@ const About: React.FC = () => {
                   style={{
                     maxWidth: "100%",
                     height: "auto",
-                    maxHeight: "400px",
+                    maxHeight: isMobile ? "280px" : "400px",
                     borderRadius: "16px",
                     boxShadow: "0 12px 40px rgba(0, 0, 0, 0.15)",
                   }}
                 />
               </Box>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={6} order={{ xs: 1, md: 2 }}>
               <Box
                 sx={{
-                  p: { xs: 2, md: 4 },
+                  p: { xs: 3, md: 4 },
                   backgroundColor: "rgba(46, 82, 102, 0.05)",
                   borderRadius: 3,
                   border: `2px solid ${theme.palette.secondary.main}20`,
+                  mx: { xs: 1, md: 0 },
                 }}
               >
                 <Typography
-                  variant="h5"
+                  variant={isMobile ? "h6" : "h5"}
                   component="h3"
                   sx={{
                     fontWeight: 600,
                     color: theme.palette.primary.main,
-                    mb: 2,
+                    mb: { xs: 1.5, md: 2 },
+                    fontSize: { xs: "1.25rem", md: "1.5rem" },
                   }}
                 >
                   Our Story
@@ -145,8 +154,9 @@ const About: React.FC = () => {
                   variant="body1"
                   sx={{
                     color: theme.palette.text.secondary,
-                    lineHeight: 1.7,
+                    lineHeight: { xs: 1.8, md: 1.7 },
                     fontWeight: 300,
+                    fontSize: { xs: "0.95rem", md: "1rem" },
                   }}
                 >
                   We didn't begin as an organisation. We began as conversations
@@ -158,59 +168,63 @@ const About: React.FC = () => {
             </Grid>
           </Grid>
 
-          <Typography
-            variant="body1"
-            component="p"
-            className={`${styles.subtitle} ${
-              isVisible ? "fade-in visible" : "fade-in"
-            }`}
-            sx={{
-              color: theme.palette.text.secondary,
-              maxWidth: "900px",
-              mx: "auto",
-              lineHeight: 1.7,
-              fontWeight: 300,
-              mb: 3,
-            }}
-          >
-            At the heart of our initiative lies a simple yet powerful belief —{" "}
-            <strong>
-              that knowledge, empathy, and structure have the power to uplift
-              entire communities
-            </strong>{" "}
-            when channelled with purpose. Our group didn't begin as an
-            organisation. It began as conversations between friends, clients,
-            colleagues, and neighbours — about systemic gaps, overlooked voices,
-            and how we could go beyond our professions to bridge those very
-            gaps.
-          </Typography>
+          <Box sx={{ px: { xs: 2, md: 0 } }}>
+            <Typography
+              variant="body1"
+              component="p"
+              className={`${styles.subtitle} ${
+                isVisible ? "fade-in visible" : "fade-in"
+              }`}
+              sx={{
+                color: theme.palette.text.secondary,
+                maxWidth: "900px",
+                mx: "auto",
+                lineHeight: { xs: 1.8, md: 1.7 },
+                fontWeight: 300,
+                mb: { xs: 2.5, md: 3 },
+                fontSize: { xs: "0.95rem", md: "1rem" },
+              }}
+            >
+              At the heart of our initiative lies a simple yet powerful belief —{" "}
+              <strong>
+                that knowledge, empathy, and structure have the power to uplift
+                entire communities
+              </strong>{" "}
+              when channelled with purpose. Our group didn't begin as an
+              organisation. It began as conversations between friends, clients,
+              colleagues, and neighbours — about systemic gaps, overlooked
+              voices, and how we could go beyond our professions to bridge those
+              very gaps.
+            </Typography>
 
-          <Typography
-            variant="body1"
-            component="p"
-            className={`${styles.subtitle} ${
-              isVisible ? "fade-in visible" : "fade-in"
-            }`}
-            sx={{
-              color: theme.palette.text.secondary,
-              maxWidth: "900px",
-              mx: "auto",
-              lineHeight: 1.7,
-              fontWeight: 300,
-              mb: 4,
-            }}
-          >
-            As lawyers, we've seen how the law can protect or fail depending on
-            awareness and access. As psychologists, we've understood how often
-            mental health is dismissed or buried under survival. As community
-            organisers and educators, we've felt the urgency of voices that go
-            unheard in decision-making processes. What brought us together was
-            the idea that{" "}
-            <strong>
-              our skills aren't meant to stay siloed — they're meant to be
-              shared, adapted, and used for collective wellbeing.
-            </strong>
-          </Typography>
+            <Typography
+              variant="body1"
+              component="p"
+              className={`${styles.subtitle} ${
+                isVisible ? "fade-in visible" : "fade-in"
+              }`}
+              sx={{
+                color: theme.palette.text.secondary,
+                maxWidth: "900px",
+                mx: "auto",
+                lineHeight: { xs: 1.8, md: 1.7 },
+                fontWeight: 300,
+                mb: { xs: 3, md: 4 },
+                fontSize: { xs: "0.95rem", md: "1rem" },
+              }}
+            >
+              As lawyers, we've seen how the law can protect or fail depending
+              on awareness and access. As psychologists, we've understood how
+              often mental health is dismissed or buried under survival. As
+              community organisers and educators, we've felt the urgency of
+              voices that go unheard in decision-making processes. What brought
+              us together was the idea that{" "}
+              <strong>
+                our skills aren't meant to stay siloed — they're meant to be
+                shared, adapted, and used for collective wellbeing.
+              </strong>
+            </Typography>
+          </Box>
 
           {/* Why Our Objectives Matter Section */}
           <Box sx={{ textAlign: "center", mb: 4 }}>
@@ -257,8 +271,12 @@ const About: React.FC = () => {
 
           <Grid
             container
-            spacing={3}
-            sx={{ maxWidth: "1000px", mx: "auto", mb: 4 }}
+            spacing={{ xs: 2, md: 3 }}
+            sx={{
+              maxWidth: "1000px",
+              mx: "auto",
+              mb: 4,
+            }}
           >
             {[
               {
@@ -296,28 +314,35 @@ const About: React.FC = () => {
               <Grid item xs={12} md={6} key={index}>
                 <Box
                   sx={{
-                    p: 3,
+                    p: { xs: 2.5, md: 3 },
                     backgroundColor: "white",
                     borderRadius: 3,
                     boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
                     border: `2px solid ${theme.palette.secondary.main}20`,
                     height: "100%",
                     transition: "all 0.3s ease-in-out",
+                    // Better mobile touch interaction
+                    cursor: "pointer",
                     "&:hover": {
-                      transform: "translateY(-4px)",
+                      transform: isMobile ? "scale(1.02)" : "translateY(-4px)",
                       boxShadow: "0 8px 30px rgba(0, 0, 0, 0.12)",
                       borderColor: `${theme.palette.secondary.main}40`,
+                    },
+                    // Better mobile tap feedback
+                    "&:active": {
+                      transform: isMobile ? "scale(0.98)" : "translateY(-4px)",
                     },
                   }}
                 >
                   <Typography
-                    variant="h6"
+                    variant={isMobile ? "subtitle1" : "h6"}
                     component="h4"
                     sx={{
                       fontWeight: 600,
                       color: theme.palette.primary.main,
-                      mb: 2,
+                      mb: { xs: 1.5, md: 2 },
                       lineHeight: 1.4,
+                      fontSize: { xs: "1.1rem", md: "1.25rem" },
                     }}
                   >
                     {objective.title}
@@ -326,7 +351,8 @@ const About: React.FC = () => {
                     variant="body2"
                     sx={{
                       color: theme.palette.text.secondary,
-                      lineHeight: 1.6,
+                      lineHeight: { xs: 1.7, md: 1.6 },
+                      fontSize: { xs: "0.9rem", md: "0.875rem" },
                     }}
                   >
                     {objective.description}
@@ -412,7 +438,7 @@ const About: React.FC = () => {
             <Grid item xs={12} sm={6} lg={3} key={member.name}>
               <Card
                 className={`${styles.teamCard} ${
-                  isVisible ? "fade-in visible" : "fade-in"
+                  isVisible || isMobile ? "fade-in visible" : "fade-in"
                 }`}
                 sx={{
                   height: "100%",

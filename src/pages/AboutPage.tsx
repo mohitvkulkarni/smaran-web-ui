@@ -13,7 +13,7 @@ const AboutPage: React.FC = () => {
           gutterBottom
           sx={{ mb: 6, color: "primary.main" }}
         >
-          About Smaran Foundation
+          Who We Are
         </Typography>
         <Typography
           variant="h6"

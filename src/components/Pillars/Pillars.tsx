@@ -76,7 +76,7 @@ const Pillars: React.FC = () => {
               mb: 3,
             }}
           >
-            Our Foundational Pillars
+            Six Areas of Focus
           </Typography>
 
           <Typography

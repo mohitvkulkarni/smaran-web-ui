@@ -32,7 +32,10 @@ const Layout: React.FC = () => {
   return (
     <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <Header />
-      <Box component="main" sx={{ flexGrow: 1, pt: isHomePage ? 0 : 8 }}>
+      <Box
+        component="main"
+        sx={{ flexGrow: 1, pt: isHomePage ? 0 : { xs: 6, md: 8 } }}
+      >
         <Outlet />
       </Box>
       <Footer onOpenPolicy={openPolicy} />

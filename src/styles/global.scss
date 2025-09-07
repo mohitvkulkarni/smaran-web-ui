@@ -7,6 +7,8 @@
 
 html {
   scroll-behavior: smooth;
+  // Prevent horizontal scroll on mobile
+  overflow-x: hidden;
 }
 
 body {
@@ -15,6 +17,13 @@ body {
   line-height: 1.6;
   color: #2c3e50;
   background-color: #fafbfc;
+  // Prevent horizontal scroll on mobile
+  overflow-x: hidden;
+  // Improve text rendering on mobile
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  // Better touch scrolling on iOS
+  -webkit-overflow-scrolling: touch;
 }
 
 // Custom scrollbar with professional colors
@@ -47,11 +56,46 @@ body {
   padding: 80px 0;
 
   @media (max-width: 768px) {
-    padding: 60px 0;
+    padding: 50px 0;
   }
 
   @media (max-width: 480px) {
     padding: 40px 0;
+  }
+}
+
+// Mobile-specific utility classes
+.mobile-text-center {
+  @media (max-width: 768px) {
+    text-align: center !important;
+  }
+}
+
+.mobile-full-width {
+  @media (max-width: 768px) {
+    width: 100% !important;
+  }
+}
+
+// Touch-friendly button sizing
+.touch-friendly {
+  min-height: 44px;
+  min-width: 44px;
+
+  @media (max-width: 768px) {
+    min-height: 48px;
+    min-width: 48px;
+  }
+}
+
+// Better mobile spacing
+.mobile-spacing {
+  @media (max-width: 768px) {
+    margin-bottom: 24px !important;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 20px !important;
   }
 }
 

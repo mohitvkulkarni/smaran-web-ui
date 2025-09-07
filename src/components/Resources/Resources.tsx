@@ -63,7 +63,7 @@ const Resources: React.FC<ResourcesProps> = ({ onOpenBlog }) => {
               mb: 3,
             }}
           >
-            Resources & Insights
+            Latest Articles
           </Typography>
 
           <Typography

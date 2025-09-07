@@ -8,10 +8,12 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { ArrowDownward } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 import styles from "./Hero.module.scss";
 
 const Hero: React.FC = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -113,7 +115,7 @@ const Hero: React.FC = () => {
           </Typography>
 
           <Typography
-            variant={isMobile ? "h3" : "h1"}
+            variant={isMobile ? "h4" : "h1"}
             component="h1"
             className={`${styles.title} ${
               isVisible ? "fade-in visible" : "fade-in"
@@ -126,6 +128,8 @@ const Hero: React.FC = () => {
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
               animationDelay: "0.2s",
+              fontSize: isMobile ? "1.75rem" : undefined,
+              lineHeight: isMobile ? 1.2 : undefined,
             }}
           >
             Welcome to Smaran Foundation!
@@ -165,12 +169,7 @@ const Hero: React.FC = () => {
             <Button
               variant="contained"
               size="large"
-              onClick={() => {
-                const element = document.querySelector("#about");
-                if (element) {
-                  element.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
+              onClick={() => navigate("/about")}
               sx={{
                 px: 4,
                 py: 1.5,
@@ -194,12 +193,7 @@ const Hero: React.FC = () => {
             <Button
               variant="outlined"
               size="large"
-              onClick={() => {
-                const element = document.querySelector("#contact");
-                if (element) {
-                  element.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
+              onClick={() => navigate("/contact")}
               sx={{
                 px: 4,
                 py: 1.5,

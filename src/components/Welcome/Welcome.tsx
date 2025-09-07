@@ -96,7 +96,7 @@ const Welcome: React.FC = () => {
               mb: 3,
             }}
           >
-            Welcome to Smaran Foundation
+            About Our Foundation
           </Typography>
 
           <Typography
