@@ -109,8 +109,9 @@ const Welcome: React.FC = () => {
               color: theme.palette.text.secondary,
               maxWidth: "800px",
               mx: "auto",
-              lineHeight: 1.7,
+              lineHeight: { xs: 1.8, md: 1.7 },
               fontWeight: 300,
+              fontSize: { xs: "1.1rem", md: "1.25rem" },
               mb: 4,
             }}
           >
@@ -124,7 +125,7 @@ const Welcome: React.FC = () => {
           </Typography>
 
           <Typography
-            variant="body1"
+            variant="h6"
             component="p"
             className={`${styles.subtitle} ${
               isVisible ? "fade-in visible" : "fade-in"
@@ -133,8 +134,9 @@ const Welcome: React.FC = () => {
               color: theme.palette.text.secondary,
               maxWidth: "800px",
               mx: "auto",
-              lineHeight: 1.7,
+              lineHeight: { xs: 1.8, md: 1.7 },
               fontWeight: 300,
+              fontSize: { xs: "1.1rem", md: "1.25rem" },
               mb: 4,
             }}
           >
@@ -145,7 +147,7 @@ const Welcome: React.FC = () => {
           </Typography>
 
           <Typography
-            variant="body1"
+            variant="h6"
             component="p"
             className={`${styles.subtitle} ${
               isVisible ? "fade-in visible" : "fade-in"
@@ -154,8 +156,9 @@ const Welcome: React.FC = () => {
               color: theme.palette.text.secondary,
               maxWidth: "800px",
               mx: "auto",
-              lineHeight: 1.7,
+              lineHeight: { xs: 1.8, md: 1.7 },
               fontWeight: 300,
+              fontSize: { xs: "1.1rem", md: "1.25rem" },
             }}
           >
             Join us in building a society where no one is left behind. Feel free
