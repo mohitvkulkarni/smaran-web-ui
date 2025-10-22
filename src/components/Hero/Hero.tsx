@@ -116,7 +116,7 @@ const Hero: React.FC = () => {
               letterSpacing: "0.5px",
             }}
           >
-            "To remember is to care... love"
+            "To remember is to care, and to care is to love..."
           </Typography>
 
           <Typography
