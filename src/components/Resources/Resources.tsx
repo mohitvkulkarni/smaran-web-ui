@@ -31,7 +31,6 @@ const Resources: React.FC<ResourcesProps> = ({
 
   // Pagination state - use external state if provided, otherwise internal state
   const [internalCurrentPage, setInternalCurrentPage] = useState(1);
-  const [isLoading, setIsLoading] = useState(false);
 
   const currentPage = externalCurrentPage || internalCurrentPage;
   const setCurrentPage = externalOnPageChange || setInternalCurrentPage;
@@ -46,21 +45,15 @@ const Resources: React.FC<ResourcesProps> = ({
 
   // Handle page change
   const handlePageChange = (
-    event: React.ChangeEvent<unknown>,
+    _event: React.ChangeEvent<unknown>,
     page: number
   ) => {
-    setIsLoading(true);
     setCurrentPage(page);
 
     // Scroll to top of resources section when page changes
     if (sectionRef.current) {
       sectionRef.current.scrollIntoView({ behavior: "smooth" });
     }
-
-    // Simulate loading for smooth transition
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 300);
   };
 
   // Handle blog opening with global index
