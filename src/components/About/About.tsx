@@ -90,8 +90,8 @@ const About: React.FC = () => {
                 px: { xs: 2, md: 0 },
               }}
             >
-              We are a collective of millennials — lawyers, psychologists,
-              counsellors, and community advocates, volunteers — who believe
+              We are a collective of millennials — investors, lawyers, teachers,
+              psychologists, advocates, and community volunteers — who believe
               that real change begins with intentional collaboration. Each of us
               comes from a different walk of life, shaped by our own
               professional journeys, yet bound by a common goal:{" "}
@@ -148,7 +148,7 @@ const About: React.FC = () => {
                     fontSize: { xs: "1.25rem", md: "1.5rem" },
                   }}
                 >
-                  Our Story
+                  Our Journey and Why It Matters to Us?
                 </Typography>
                 <Typography
                   variant="body1"
@@ -157,12 +157,70 @@ const About: React.FC = () => {
                     lineHeight: { xs: 1.8, md: 1.7 },
                     fontWeight: 300,
                     fontSize: { xs: "0.95rem", md: "1rem" },
+                    mb: { xs: 2, md: 2.5 },
                   }}
                 >
                   We didn't begin as an organisation. We began as conversations
                   between friends, clients, colleagues, and neighbours — about
                   systemic gaps, overlooked voices, and how we could go beyond
                   our professions to bridge those very gaps.
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: theme.palette.text.secondary,
+                    lineHeight: { xs: 1.8, md: 1.7 },
+                    fontWeight: 300,
+                    fontSize: { xs: "0.95rem", md: "1rem" },
+                    mb: { xs: 2, md: 2.5 },
+                  }}
+                >
+                  We are often told that millennials are impatient, idealistic,
+                  or distracted. But we've learned that idealism, when grounded
+                  in effort, can build movements. That impatience, when
+                  channelled right, becomes the urgency that change demands. And
+                  that being 'distracted' sometimes just means we're paying
+                  attention to things the world prefers to ignore.
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: theme.palette.text.secondary,
+                    lineHeight: { xs: 1.8, md: 1.7 },
+                    fontWeight: 300,
+                    fontSize: { xs: "0.95rem", md: "1rem" },
+                    mb: { xs: 2, md: 2.5 },
+                  }}
+                >
+                  This initiative is our way of focusing that attention where
+                  it's needed most — on people, systems, and stories that
+                  deserve care, clarity, and community.
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: theme.palette.text.secondary,
+                    lineHeight: { xs: 1.8, md: 1.7 },
+                    fontWeight: 300,
+                    fontSize: { xs: "0.95rem", md: "1rem" },
+                    mb: { xs: 2, md: 2.5 },
+                  }}
+                >
+                  We are not here to save anyone. We are here to walk alongside
+                  — with knowledge, compassion, and conviction.
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: theme.palette.primary.main,
+                    lineHeight: { xs: 1.8, md: 1.7 },
+                    fontWeight: 600,
+                    fontSize: { xs: "0.95rem", md: "1rem" },
+                  }}
+                >
+                  Because in the end, a better society isn't built by a few
+                  experts. It's built by everyday people showing up for each
+                  other with what they know, and what they care about.
                 </Typography>
               </Box>
             </Grid>
@@ -226,11 +284,14 @@ const About: React.FC = () => {
             </Typography>
           </Box>
 
-          {/* Why Our Objectives Matter Section */}
+          {/* Our Objectives Section */}
           <Box sx={{ textAlign: "center", mb: 4 }}>
             <Typography
               variant={isMobile ? "h5" : "h4"}
               component="h3"
+              className={`${styles.title} ${
+                isVisible ? "fade-in visible" : "fade-in"
+              }`}
               sx={{
                 fontWeight: 600,
                 color: theme.palette.primary.main,
@@ -251,140 +312,220 @@ const About: React.FC = () => {
             />
           </Box>
 
-          <Typography
-            variant="body1"
-            component="p"
-            sx={{
-              color: theme.palette.text.secondary,
-              maxWidth: "900px",
-              mx: "auto",
-              lineHeight: 1.7,
-              fontWeight: 300,
-              mb: 3,
-            }}
-          >
-            Our objectives are not just organisational statements — they are
-            personal promises. Promises to respond to the inequalities we have
-            witnessed in courts, clinics, classrooms, and homes. Each objective
-            is born out of something we've experienced first-hand:
-          </Typography>
+          <Box sx={{ px: { xs: 2, md: 0 }, mb: 6 }}>
+            <Typography
+              variant="body1"
+              component="p"
+              className={`${styles.subtitle} ${
+                isVisible ? "fade-in visible" : "fade-in"
+              }`}
+              sx={{
+                color: theme.palette.text.secondary,
+                maxWidth: "900px",
+                mx: "auto",
+                lineHeight: { xs: 1.8, md: 1.7 },
+                fontWeight: 300,
+                mb: { xs: 3, md: 4 },
+                fontSize: { xs: "0.95rem", md: "1rem" },
+              }}
+            >
+              Our objectives are not just organisational statements — they are
+              personal promises. Promises to respond to the inequalities we have
+              witnessed in courts, clinics, classrooms, and homes. Each
+              objective is born out of something we've experienced first-hand:
+            </Typography>
 
-          <Grid
-            container
-            spacing={{ xs: 2, md: 3 }}
-            sx={{
-              maxWidth: "1000px",
-              mx: "auto",
-              mb: 4,
-            }}
-          >
-            {[
-              {
-                title: "To simplify legal access",
-                description:
-                  "because we've seen too many people kept away from justice due to jargon and gatekeeping. We aim to make laws understandable and accessible so that every individual knows their rights and protections.",
-              },
-              {
-                title: "To normalise mental health conversations",
-                description:
-                  "in everyday spaces, because we've seen how silence leads to suffering. We promote open, stigma-free discussions where seeking help is seen as a sign of strength.",
-              },
-              {
-                title: "To strengthen communities",
-                description:
-                  "through education, rights awareness, and dialogue, because we believe in long-term empowerment — not one-time relief.",
-              },
-              {
-                title: "To empower women and youth",
-                description:
-                  "recognising their potential as drivers of change. Opportunities for leadership, skill-building, and economic independence are created to help them thrive.",
-              },
-              {
-                title:
-                  "To promote sustainable environmental development and preservation",
-                description:
-                  "ensuring that growth respects the planet. We support initiatives that protect natural resources while enabling eco-friendly livelihoods.",
-              },
-              {
-                title: "To champion disability inclusion",
-                description:
-                  "ensuring dignity, access, and opportunity for all. We work to remove physical, social, and systemic barriers faced by persons with disabilities.",
-              },
-            ].map((objective, index) => (
-              <Grid item xs={12} md={6} key={index}>
-                <Box
-                  sx={{
-                    p: { xs: 2.5, md: 3 },
-                    backgroundColor: "white",
-                    borderRadius: 3,
-                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
-                    border: `2px solid ${theme.palette.secondary.main}20`,
-                    height: "100%",
-                    transition: "all 0.3s ease-in-out",
-                    // Better mobile touch interaction
-                    cursor: "pointer",
-                    "&:hover": {
-                      transform: isMobile ? "scale(1.02)" : "translateY(-4px)",
-                      boxShadow: "0 8px 30px rgba(0, 0, 0, 0.12)",
-                      borderColor: `${theme.palette.secondary.main}40`,
-                    },
-                    // Better mobile tap feedback
-                    "&:active": {
-                      transform: isMobile ? "scale(0.98)" : "translateY(-4px)",
-                    },
-                  }}
-                >
-                  <Typography
-                    variant={isMobile ? "subtitle1" : "h6"}
-                    component="h4"
-                    sx={{
-                      fontWeight: 600,
-                      color: theme.palette.primary.main,
-                      mb: { xs: 1.5, md: 2 },
-                      lineHeight: 1.4,
-                      fontSize: { xs: "1.1rem", md: "1.25rem" },
-                    }}
-                  >
-                    {objective.title}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      color: theme.palette.text.secondary,
-                      lineHeight: { xs: 1.7, md: 1.6 },
-                      fontSize: { xs: "0.9rem", md: "0.875rem" },
-                    }}
-                  >
-                    {objective.description}
-                  </Typography>
-                </Box>
-              </Grid>
-            ))}
-          </Grid>
+            <Typography
+              variant="body1"
+              component="p"
+              className={`${styles.subtitle} ${
+                isVisible ? "fade-in visible" : "fade-in"
+              }`}
+              sx={{
+                color: theme.palette.text.secondary,
+                maxWidth: "900px",
+                mx: "auto",
+                lineHeight: { xs: 1.8, md: 1.7 },
+                fontWeight: 300,
+                mb: { xs: 2.5, md: 3 },
+                fontSize: { xs: "0.95rem", md: "1rem" },
+              }}
+            >
+              <Box
+                component="span"
+                sx={{ fontWeight: 500, color: theme.palette.primary.main }}
+              >
+                To simplify legal access
+              </Box>{" "}
+              because we've seen too many people kept away from justice due to
+              jargon and gatekeeping. We aim to make laws understandable and
+              accessible so that every individual knows their rights and
+              protections.
+            </Typography>
 
-          <Typography
-            variant="body1"
-            component="p"
-            sx={{
-              color: theme.palette.text.secondary,
-              maxWidth: "900px",
-              mx: "auto",
-              lineHeight: 1.7,
-              fontWeight: 300,
-              mb: 4,
-              textAlign: "center",
-              fontStyle: "italic",
-            }}
-          >
-            In a world that's increasingly fragmented, our objective is{" "}
-            <strong>
-              to build bridges — between knowledge and people, between rights
-              and reach, between care and access
-            </strong>
-            . For us, this means not just working <em>for</em> the community,
-            but <em>with</em> it — listening as much as we speak, learning as
-            much as we teach.
-          </Typography>
+            <Typography
+              variant="body1"
+              component="p"
+              className={`${styles.subtitle} ${
+                isVisible ? "fade-in visible" : "fade-in"
+              }`}
+              sx={{
+                color: theme.palette.text.secondary,
+                maxWidth: "900px",
+                mx: "auto",
+                lineHeight: { xs: 1.8, md: 1.7 },
+                fontWeight: 300,
+                mb: { xs: 2.5, md: 3 },
+                fontSize: { xs: "0.95rem", md: "1rem" },
+              }}
+            >
+              <Box
+                component="span"
+                sx={{ fontWeight: 500, color: theme.palette.primary.main }}
+              >
+                To normalise mental health conversations
+              </Box>{" "}
+              in everyday spaces, because we've seen how silence leads to
+              suffering. We promote open, stigma-free discussions where seeking
+              help is seen as a sign of strength.
+            </Typography>
+
+            <Typography
+              variant="body1"
+              component="p"
+              className={`${styles.subtitle} ${
+                isVisible ? "fade-in visible" : "fade-in"
+              }`}
+              sx={{
+                color: theme.palette.text.secondary,
+                maxWidth: "900px",
+                mx: "auto",
+                lineHeight: { xs: 1.8, md: 1.7 },
+                fontWeight: 300,
+                mb: { xs: 2.5, md: 3 },
+                fontSize: { xs: "0.95rem", md: "1rem" },
+              }}
+            >
+              <Box
+                component="span"
+                sx={{ fontWeight: 500, color: theme.palette.primary.main }}
+              >
+                To strengthen communities
+              </Box>{" "}
+              through education, rights awareness, and dialogue, because we
+              believe in long-term empowerment — not one-time relief.
+            </Typography>
+
+            <Typography
+              variant="body1"
+              component="p"
+              className={`${styles.subtitle} ${
+                isVisible ? "fade-in visible" : "fade-in"
+              }`}
+              sx={{
+                color: theme.palette.text.secondary,
+                maxWidth: "900px",
+                mx: "auto",
+                lineHeight: { xs: 1.8, md: 1.7 },
+                fontWeight: 300,
+                mb: { xs: 2.5, md: 3 },
+                fontSize: { xs: "0.95rem", md: "1rem" },
+              }}
+            >
+              <Box
+                component="span"
+                sx={{ fontWeight: 500, color: theme.palette.primary.main }}
+              >
+                To empower women and youth
+              </Box>{" "}
+              recognising their potential as drivers of change. Opportunities
+              for leadership, skill-building, and economic independence are
+              created to help them thrive.
+            </Typography>
+
+            <Typography
+              variant="body1"
+              component="p"
+              className={`${styles.subtitle} ${
+                isVisible ? "fade-in visible" : "fade-in"
+              }`}
+              sx={{
+                color: theme.palette.text.secondary,
+                maxWidth: "900px",
+                mx: "auto",
+                lineHeight: { xs: 1.8, md: 1.7 },
+                fontWeight: 300,
+                mb: { xs: 2.5, md: 3 },
+                fontSize: { xs: "0.95rem", md: "1rem" },
+              }}
+            >
+              <Box
+                component="span"
+                sx={{ fontWeight: 500, color: theme.palette.primary.main }}
+              >
+                To promote sustainable environmental development and
+                preservation
+              </Box>{" "}
+              ensuring that growth respects the planet. We support initiatives
+              that protect natural resources while enabling eco-friendly
+              livelihoods.
+            </Typography>
+
+            <Typography
+              variant="body1"
+              component="p"
+              className={`${styles.subtitle} ${
+                isVisible ? "fade-in visible" : "fade-in"
+              }`}
+              sx={{
+                color: theme.palette.text.secondary,
+                maxWidth: "900px",
+                mx: "auto",
+                lineHeight: { xs: 1.8, md: 1.7 },
+                fontWeight: 300,
+                mb: { xs: 2.5, md: 3 },
+                fontSize: { xs: "0.95rem", md: "1rem" },
+              }}
+            >
+              <Box
+                component="span"
+                sx={{ fontWeight: 500, color: theme.palette.primary.main }}
+              >
+                To champion disability inclusion
+              </Box>{" "}
+              ensuring dignity, access, and opportunity for all. We work to
+              remove physical, social, and systemic barriers faced by persons
+              with disabilities.
+            </Typography>
+
+            <Typography
+              variant="body1"
+              component="p"
+              className={`${styles.subtitle} ${
+                isVisible ? "fade-in visible" : "fade-in"
+              }`}
+              sx={{
+                color: theme.palette.text.secondary,
+                maxWidth: "900px",
+                mx: "auto",
+                lineHeight: { xs: 1.8, md: 1.7 },
+                fontWeight: 300,
+                mb: { xs: 3, md: 4 },
+                fontSize: { xs: "0.95rem", md: "1rem" },
+                textAlign: "center",
+                fontStyle: "italic",
+              }}
+            >
+              In a world that's increasingly fragmented, our objective is{" "}
+              <strong>
+                to build bridges — between knowledge and people, between rights
+                and reach, between care and access
+              </strong>
+              . For us, this means not just working <em>for</em> the community,
+              but <em>with</em> it — listening as much as we speak, learning as
+              much as we teach.
+            </Typography>
+          </Box>
         </Box>
 
         {/* Team Section */}
@@ -518,87 +659,6 @@ const About: React.FC = () => {
             </Grid>
           ))}
         </Grid>
-
-        <Box
-          sx={{
-            textAlign: "center",
-            mt: 6,
-            p: 4,
-            backgroundColor: "white",
-            borderRadius: 3,
-            boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
-          }}
-          className={`${styles.teamMessage} ${
-            isVisible ? "fade-in visible" : "fade-in"
-          }`}
-        >
-          <Typography
-            variant={isMobile ? "h6" : "h5"}
-            component="p"
-            sx={{
-              color: theme.palette.primary.main,
-              fontWeight: 500,
-              lineHeight: 1.6,
-              mb: 2,
-            }}
-          >
-            Why It Matters to Us?
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              color: theme.palette.text.secondary,
-              lineHeight: 1.6,
-              mb: 3,
-            }}
-          >
-            We are often told that millennials are impatient, idealistic, or
-            distracted. But we've learned that idealism, when grounded in
-            effort, can build movements. That impatience, when channelled right,
-            becomes the urgency that change demands. And that being 'distracted'
-            sometimes just means we're paying attention to things the world
-            prefers to ignore.
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              color: theme.palette.text.secondary,
-              lineHeight: 1.6,
-              mb: 3,
-            }}
-          >
-            This initiative is our way of focusing that attention where it's
-            needed most — on people, systems, and stories that deserve care,
-            clarity, and community.
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              color: theme.palette.text.secondary,
-              lineHeight: 1.6,
-              fontWeight: 500,
-            }}
-          >
-            We are not here to save anyone. We are here to walk alongside — with
-            knowledge, compassion, and conviction.
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              color: theme.palette.primary.main,
-              lineHeight: 1.6,
-              fontWeight: 600,
-              mt: 2,
-            }}
-          >
-            Because in the end,{" "}
-            <strong>
-              a better society isn't built by a few experts. It's built by
-              everyday people showing up for each other with what they know, and
-              what they care about.
-            </strong>
-          </Typography>
-        </Box>
       </Container>
     </Box>
   );

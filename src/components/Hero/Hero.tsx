@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
         display: "flex",
         alignItems: "center",
         position: "relative",
-        background: "linear-gradient(135deg, #2E5266 0%, #1A3A47 100%)",
+        background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.dark} 100%)`,
         overflow: "hidden",
       }}
     >
@@ -78,78 +78,84 @@ const Hero: React.FC = () => {
               isVisible ? "fade-in visible" : "fade-in"
             }`}
             sx={{
-              mb: 2,
+              mb: 4,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              gap: 2,
             }}
           >
             <img
               src="/assets/logo.png"
               alt="Smaran Foundation Logo"
               style={{
-                height: isMobile ? 80 : 120,
-                width: isMobile ? 80 : 120,
+                height: isMobile ? 100 : 150,
+                width: isMobile ? 100 : 150,
                 borderRadius: "50%",
                 objectFit: "cover",
-                filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))",
+                filter: "drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3))",
+                transition: "all 0.3s ease-in-out",
               }}
             />
           </Box>
 
           {/* Tagline */}
           <Typography
-            variant={isMobile ? "body1" : "h6"}
+            variant={isMobile ? "h6" : "h4"}
             component="p"
             className={`${styles.tagline} ${
               isVisible ? "fade-in visible" : "fade-in"
             }`}
             sx={{
-              mb: 4,
-              opacity: 0.8,
+              mb: 6,
+              opacity: 0.95,
               fontStyle: "italic",
               fontWeight: 300,
               animationDelay: "0.1s",
+              fontSize: isMobile ? "1.25rem" : "1.75rem",
+              lineHeight: 1.4,
+              letterSpacing: "0.5px",
             }}
           >
             "To remember is to care... love"
           </Typography>
 
           <Typography
-            variant={isMobile ? "h4" : "h1"}
+            variant={isMobile ? "h4" : "h2"}
             component="h1"
             className={`${styles.title} ${
               isVisible ? "fade-in visible" : "fade-in"
             }`}
             sx={{
               fontWeight: 700,
-              mb: 3,
-              background: "linear-gradient(135deg, #ffffff 0%, #F4A261 100%)",
+              mb: 4,
+              background: `linear-gradient(135deg, #ffffff 0%, ${theme.palette.secondary.main} 100%)`,
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
               animationDelay: "0.2s",
-              fontSize: isMobile ? "1.75rem" : "2.5rem",
+              fontSize: isMobile ? "2rem" : "3rem",
               lineHeight: 1.2,
-              whiteSpace: "nowrap",
+              textAlign: "center",
             }}
           >
-            Welcome to Smaran Foundation!
+            Welcome to Smaran Foundation
           </Typography>
 
           <Typography
-            variant={isMobile ? "h6" : "h5"}
+            variant={isMobile ? "body1" : "h6"}
             component="p"
             className={`${styles.subtitle} ${
               isVisible ? "fade-in visible" : "fade-in"
             }`}
             sx={{
-              mb: 4,
+              mb: 6,
               opacity: 0.9,
               lineHeight: 1.6,
               fontWeight: 300,
               animationDelay: "0.3s",
+              fontSize: isMobile ? "1.1rem" : "1.25rem",
+              maxWidth: "600px",
+              mx: "auto",
             }}
           >
             Smaran is remembrance — of every soul worthy of dignity, compassion,
@@ -174,17 +180,18 @@ const Hero: React.FC = () => {
               size="large"
               onClick={() => navigate("/about")}
               sx={{
-                px: 4,
-                py: 1.5,
+                px: 5,
+                py: 2,
                 fontSize: "1.1rem",
                 fontWeight: 600,
                 backgroundColor: theme.palette.secondary.main,
                 color: "white",
                 borderRadius: 3,
-                boxShadow: "0 8px 25px rgba(244, 162, 97, 0.3)",
+                boxShadow: `0 8px 25px rgba(212, 165, 116, 0.3)`,
+                textTransform: "none",
                 "&:hover": {
                   backgroundColor: theme.palette.secondary.dark,
-                  boxShadow: "0 12px 35px rgba(244, 162, 97, 0.4)",
+                  boxShadow: `0 12px 35px rgba(212, 165, 116, 0.4)`,
                   transform: "translateY(-2px)",
                 },
                 transition: "all 0.3s ease-in-out",
@@ -198,14 +205,15 @@ const Hero: React.FC = () => {
               size="large"
               onClick={() => navigate("/contact")}
               sx={{
-                px: 4,
-                py: 1.5,
+                px: 5,
+                py: 2,
                 fontSize: "1.1rem",
                 fontWeight: 600,
                 borderColor: "white",
                 color: "white",
                 borderRadius: 3,
                 borderWidth: 2,
+                textTransform: "none",
                 "&:hover": {
                   borderColor: theme.palette.secondary.main,
                   backgroundColor: theme.palette.secondary.main,

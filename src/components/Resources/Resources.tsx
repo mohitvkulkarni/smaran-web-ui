@@ -4,6 +4,7 @@ import {
   Container,
   Typography,
   Grid,
+  Pagination,
   useTheme,
   useMediaQuery,
 } from "@mui/material";
@@ -13,14 +14,60 @@ import BlogCard from "../BlogCard/BlogCard";
 import styles from "./Resources.module.scss";
 
 interface ResourcesProps {
-  onOpenBlog: (blog: Blog, index: number) => void;
+  onOpenBlog: (blog: Blog, globalIndex: number) => void;
+  currentPage?: number;
+  onPageChange?: (page: number) => void;
 }
 
-const Resources: React.FC<ResourcesProps> = ({ onOpenBlog }) => {
+const Resources: React.FC<ResourcesProps> = ({
+  onOpenBlog,
+  currentPage: externalCurrentPage,
+  onPageChange: externalOnPageChange,
+}) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+
+  // Pagination state - use external state if provided, otherwise internal state
+  const [internalCurrentPage, setInternalCurrentPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const currentPage = externalCurrentPage || internalCurrentPage;
+  const setCurrentPage = externalOnPageChange || setInternalCurrentPage;
+  const blogsPerPage = 9;
+  const totalBlogs = BLOGS.length;
+  const totalPages = Math.ceil(totalBlogs / blogsPerPage);
+
+  // Calculate which blogs to display on current page
+  const startIndex = (currentPage - 1) * blogsPerPage;
+  const endIndex = startIndex + blogsPerPage;
+  const currentBlogs = BLOGS.slice(startIndex, endIndex);
+
+  // Handle page change
+  const handlePageChange = (
+    event: React.ChangeEvent<unknown>,
+    page: number
+  ) => {
+    setIsLoading(true);
+    setCurrentPage(page);
+
+    // Scroll to top of resources section when page changes
+    if (sectionRef.current) {
+      sectionRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+
+    // Simulate loading for smooth transition
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 300);
+  };
+
+  // Handle blog opening with global index
+  const handleOpenBlog = (blog: Blog, localIndex: number) => {
+    const globalIndex = startIndex + localIndex;
+    onOpenBlog(blog, globalIndex);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -86,19 +133,79 @@ const Resources: React.FC<ResourcesProps> = ({ onOpenBlog }) => {
           </Typography>
         </Box>
 
-        <Grid container spacing={4}>
-          {BLOGS.map((blog, index) => (
-            <Grid item xs={12} sm={6} lg={4} key={blog.title}>
+        <Grid
+          container
+          spacing={{ xs: 2, sm: 3, lg: 3 }}
+          sx={{
+            justifyContent: currentBlogs.length < 3 ? "center" : "flex-start",
+            alignItems: "stretch",
+            px: { xs: 1, sm: 0 }, // Add padding for mobile
+          }}
+        >
+          {currentBlogs.map((blog, index) => (
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              lg={4}
+              key={blog.title}
+              sx={{
+                display: "flex",
+                maxWidth: { lg: "33.333333%" }, // Ensure exactly 3 columns on large screens
+              }}
+            >
               <BlogCard
                 blog={blog}
                 index={index}
-                onOpenBlog={onOpenBlog}
+                onOpenBlog={handleOpenBlog}
                 className={`${isVisible ? "fade-in visible" : "fade-in"}`}
-                style={{ animationDelay: `${index * 0.1}s` }}
+                style={{
+                  animationDelay: `${index * 0.1}s`,
+                  width: "100%",
+                }}
               />
             </Grid>
           ))}
         </Grid>
+
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              mt: 6,
+              mb: 4,
+              px: 2, // Add padding for mobile
+            }}
+          >
+            <Pagination
+              count={totalPages}
+              page={currentPage}
+              onChange={handlePageChange}
+              color="primary"
+              size={isMobile ? "medium" : "large"}
+              showFirstButton={!isMobile}
+              showLastButton={!isMobile}
+              siblingCount={isMobile ? 0 : 1}
+              boundaryCount={isMobile ? 1 : 2}
+              sx={{
+                "& .MuiPaginationItem-root": {
+                  fontWeight: 500,
+                  minWidth: isMobile ? "32px" : "40px",
+                  height: isMobile ? "32px" : "40px",
+                },
+                "& .Mui-selected": {
+                  backgroundColor: theme.palette.primary.main,
+                  color: "white",
+                  "&:hover": {
+                    backgroundColor: theme.palette.primary.dark,
+                  },
+                },
+              }}
+            />
+          </Box>
+        )}
 
         <Box
           sx={{

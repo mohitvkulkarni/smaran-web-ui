@@ -10,6 +10,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { Favorite, People, School, EmojiObjects } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 import styles from "./Welcome.module.scss";
 
 const Welcome: React.FC = () => {
@@ -83,7 +84,7 @@ const Welcome: React.FC = () => {
       }}
     >
       <Container maxWidth="lg">
-        <Box sx={{ textAlign: "center", mb: 6 }}>
+        <Box sx={{ textAlign: "center", mb: 8 }}>
           <Typography
             variant={isMobile ? "h4" : "h3"}
             component="h2"
@@ -93,7 +94,19 @@ const Welcome: React.FC = () => {
             sx={{
               fontWeight: 600,
               color: theme.palette.primary.main,
-              mb: 3,
+              mb: 4,
+              position: "relative",
+              "&::after": {
+                content: '""',
+                position: "absolute",
+                bottom: "-12px",
+                left: "50%",
+                transform: "translateX(-50%)",
+                width: "60px",
+                height: "3px",
+                backgroundColor: theme.palette.secondary.main,
+                borderRadius: "2px",
+              },
             }}
           >
             About Our Foundation
@@ -113,6 +126,7 @@ const Welcome: React.FC = () => {
               fontWeight: 300,
               fontSize: { xs: "1.1rem", md: "1.25rem" },
               mb: 4,
+              animationDelay: "0.1s",
             }}
           >
             Smaran Foundation is a Bangalore-based Charitable Trust committed to
@@ -138,6 +152,7 @@ const Welcome: React.FC = () => {
               fontWeight: 300,
               fontSize: { xs: "1.1rem", md: "1.25rem" },
               mb: 4,
+              animationDelay: "0.2s",
             }}
           >
             Rooted in empathy and driven by action, our programs touch lives
@@ -159,10 +174,31 @@ const Welcome: React.FC = () => {
               lineHeight: { xs: 1.8, md: 1.7 },
               fontWeight: 300,
               fontSize: { xs: "1.1rem", md: "1.25rem" },
+              animationDelay: "0.3s",
             }}
           >
             Join us in building a society where no one is left behind. Feel free
-            to contact us at anytime!
+            to{" "}
+            <Link
+              to="/contact"
+              style={{
+                color: theme.palette.primary.main,
+                textDecoration: "none",
+                fontWeight: 500,
+                borderBottom: `2px solid ${theme.palette.secondary.main}`,
+                paddingBottom: "2px",
+                transition: "all 0.3s ease-in-out",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = theme.palette.secondary.main;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = theme.palette.primary.main;
+              }}
+            >
+              contact us
+            </Link>{" "}
+            at anytime!
           </Typography>
         </Box>
 
@@ -218,11 +254,24 @@ const Welcome: React.FC = () => {
         <Box
           sx={{
             textAlign: "center",
-            mt: 6,
-            p: 4,
-            backgroundColor: theme.palette.primary.main,
-            borderRadius: 3,
+            mt: 8,
+            p: { xs: 3, md: 5 },
+            background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.dark} 100%)`,
+            borderRadius: 4,
             color: "white",
+            position: "relative",
+            overflow: "hidden",
+            "&::before": {
+              content: '""',
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background:
+                "radial-gradient(circle at 30% 70%, rgba(212, 165, 116, 0.1) 0%, transparent 50%)",
+              pointerEvents: "none",
+            },
           }}
           className={`${styles.missionStatement} ${
             isVisible ? "fade-in visible" : "fade-in"
@@ -235,6 +284,9 @@ const Welcome: React.FC = () => {
               fontStyle: "italic",
               fontWeight: 300,
               lineHeight: 1.6,
+              position: "relative",
+              zIndex: 1,
+              animationDelay: "0.5s",
             }}
           >
             "Our mission is to create a society where every individual has the

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -41,6 +41,63 @@ const BlogModal: React.FC<BlogModalProps> = ({
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const isTablet = useMediaQuery(theme.breakpoints.down("lg"));
+  const mobileScrollRef = React.useRef<HTMLDivElement>(null);
+  const desktopScrollRef = React.useRef<HTMLDivElement>(null);
+
+  // Scroll to top function
+  const scrollToTop = () => {
+    const scrollContainer = isMobile
+      ? mobileScrollRef.current
+      : desktopScrollRef.current;
+    if (scrollContainer) {
+      scrollContainer.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
+  // Enhanced navigation handlers with scroll
+  const handlePrev = () => {
+    onPrev();
+    setTimeout(scrollToTop, 100); // Small delay to ensure content is updated
+  };
+
+  const handleNext = () => {
+    onNext();
+    setTimeout(scrollToTop, 100); // Small delay to ensure content is updated
+  };
+
+  // Scroll to top when blog changes
+  useEffect(() => {
+    scrollToTop();
+  }, [blog.title]); // Trigger when blog changes
+
+  // Keyboard navigation support
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      switch (event.key) {
+        case "ArrowLeft":
+          if (!isFirst) {
+            event.preventDefault();
+            handlePrev();
+          }
+          break;
+        case "ArrowRight":
+          if (!isLast) {
+            event.preventDefault();
+            handleNext();
+          }
+          break;
+        case "Escape":
+          event.preventDefault();
+          onClose();
+          break;
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isFirst, isLast, onNext, onPrev, onClose]);
 
   return (
     <Dialog
@@ -50,6 +107,8 @@ const BlogModal: React.FC<BlogModalProps> = ({
       fullWidth
       fullScreen={isMobile}
       className={styles.blogModal}
+      aria-labelledby="blog-modal-title"
+      aria-describedby="blog-modal-content"
       sx={{
         "& .MuiDialog-paper": {
           borderRadius: isMobile ? 0 : 2,
@@ -78,8 +137,10 @@ const BlogModal: React.FC<BlogModalProps> = ({
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           {!isFirst && (
             <IconButton
-              onClick={onPrev}
+              onClick={handlePrev}
               size="small"
+              aria-label="Previous article"
+              title="Previous article (Left arrow key)"
               sx={{
                 backgroundColor: theme.palette.background.paper,
                 boxShadow: 1,
@@ -93,8 +154,10 @@ const BlogModal: React.FC<BlogModalProps> = ({
           )}
           {!isLast && (
             <IconButton
-              onClick={onNext}
+              onClick={handleNext}
               size="small"
+              aria-label="Next article"
+              title="Next article (Right arrow key)"
               sx={{
                 backgroundColor: theme.palette.background.paper,
                 boxShadow: 1,
@@ -121,6 +184,8 @@ const BlogModal: React.FC<BlogModalProps> = ({
 
         <IconButton
           onClick={onClose}
+          aria-label="Close article"
+          title="Close article (Escape key)"
           sx={{
             backgroundColor: theme.palette.background.paper,
             boxShadow: 1,
@@ -144,6 +209,7 @@ const BlogModal: React.FC<BlogModalProps> = ({
         {isMobile ? (
           // Mobile: Vertical layout with scrollable content
           <Box
+            ref={mobileScrollRef}
             sx={{
               height: "100%",
               overflowY: "auto",
@@ -176,6 +242,7 @@ const BlogModal: React.FC<BlogModalProps> = ({
             {/* Mobile Content Section */}
             <Box sx={{ p: 3 }}>
               <Typography
+                id="blog-modal-title"
                 variant="h5"
                 component="h1"
                 sx={{
@@ -210,6 +277,7 @@ const BlogModal: React.FC<BlogModalProps> = ({
               <Divider sx={{ mb: 3 }} />
 
               <Box
+                id="blog-modal-content"
                 className={`${styles.blogContent} blog-content`}
                 sx={{
                   "& p": {
@@ -253,6 +321,7 @@ const BlogModal: React.FC<BlogModalProps> = ({
                   alignItems: "center",
                   mt: 4,
                   pt: 3,
+                  pb: 4, // Added padding bottom
                   borderTop: `1px solid ${theme.palette.divider}`,
                 }}
               >
@@ -260,7 +329,7 @@ const BlogModal: React.FC<BlogModalProps> = ({
                   {!isFirst && (
                     <Typography
                       variant="body2"
-                      onClick={onPrev}
+                      onClick={handlePrev}
                       sx={{
                         color: theme.palette.secondary.main,
                         cursor: "pointer",
@@ -278,7 +347,7 @@ const BlogModal: React.FC<BlogModalProps> = ({
                   {!isLast && (
                     <Typography
                       variant="body2"
-                      onClick={onNext}
+                      onClick={handleNext}
                       sx={{
                         color: theme.palette.secondary.main,
                         cursor: "pointer",
@@ -340,6 +409,7 @@ const BlogModal: React.FC<BlogModalProps> = ({
 
             {/* Content Section */}
             <Grid
+              ref={desktopScrollRef}
               item
               xs={12}
               md={isTablet ? 7 : 6}
@@ -351,6 +421,7 @@ const BlogModal: React.FC<BlogModalProps> = ({
             >
               <Box sx={{ p: isTablet ? 3 : 4, height: "100%" }}>
                 <Typography
+                  id="blog-modal-title"
                   variant={isTablet ? "h5" : "h4"}
                   component="h1"
                   sx={{
@@ -385,6 +456,7 @@ const BlogModal: React.FC<BlogModalProps> = ({
                 <Divider sx={{ mb: 3 }} />
 
                 <Box
+                  id="blog-modal-content"
                   className={`${styles.blogContent} blog-content`}
                   sx={{
                     "& p": {
@@ -432,6 +504,7 @@ const BlogModal: React.FC<BlogModalProps> = ({
                     alignItems: "center",
                     mt: 4,
                     pt: 3,
+                    pb: 4, // Added padding bottom
                     borderTop: `1px solid ${theme.palette.divider}`,
                   }}
                 >
@@ -439,7 +512,7 @@ const BlogModal: React.FC<BlogModalProps> = ({
                     {!isFirst && (
                       <Typography
                         variant="body2"
-                        onClick={onPrev}
+                        onClick={handlePrev}
                         sx={{
                           color: theme.palette.secondary.main,
                           cursor: "pointer",
@@ -457,7 +530,7 @@ const BlogModal: React.FC<BlogModalProps> = ({
                     {!isLast && (
                       <Typography
                         variant="body2"
-                        onClick={onNext}
+                        onClick={handleNext}
                         sx={{
                           color: theme.palette.secondary.main,
                           cursor: "pointer",

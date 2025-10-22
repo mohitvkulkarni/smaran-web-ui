@@ -150,6 +150,22 @@ const theme = createTheme({
         },
       },
     },
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "#FFFFFF",
+          color: "#2C3E50",
+          boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
+        },
+      },
+    },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          color: "inherit",
+        },
+      },
+    },
   },
   breakpoints: {
     values: {
