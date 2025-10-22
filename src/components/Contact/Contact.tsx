@@ -6,11 +6,11 @@ import {
   Grid,
   Card,
   CardContent,
-  Button,
   useTheme,
   useMediaQuery,
 } from "@mui/material";
 import { Email, LocationOn, Phone, Schedule } from "@mui/icons-material";
+import ContactForm from "../ContactForm/ContactForm";
 import styles from "./Contact.module.scss";
 
 const Contact: React.FC = () => {
@@ -182,75 +182,77 @@ const Contact: React.FC = () => {
           ))}
         </Grid>
 
-        <Box
-          sx={{
-            textAlign: "center",
-            p: 6,
-            backgroundColor: theme.palette.primary.main,
-            borderRadius: 3,
-            color: "white",
-            position: "relative",
-            overflow: "hidden",
-          }}
-          className={`${styles.ctaSection} ${
-            isVisible ? "fade-in visible" : "fade-in"
-          }`}
-        >
-          <Box className={styles.ctaPattern} />
-          <Box sx={{ position: "relative", zIndex: 2 }}>
-            <Typography
-              variant={isMobile ? "h5" : "h4"}
-              component="h3"
-              sx={{
-                fontWeight: 600,
-                mb: 2,
-              }}
+        {/* Contact Form Section */}
+        <Grid container spacing={6} sx={{ mb: 6 }}>
+          <Grid item xs={12} lg={8}>
+            <Box
+              className={`${styles.contactForm} ${
+                isVisible ? "fade-in visible" : "fade-in"
+              }`}
             >
-              Ready to Make a Difference?
-            </Typography>
+              <ContactForm />
+            </Box>
+          </Grid>
 
-            <Typography
-              variant="h6"
-              component="p"
+          <Grid item xs={12} lg={4}>
+            <Box
               sx={{
-                mb: 4,
-                opacity: 0.9,
-                lineHeight: 1.6,
-                fontWeight: 300,
-                maxWidth: "600px",
-                mx: "auto",
-              }}
-            >
-              Join us in our mission to create positive change in communities
-              across India. Every contribution, big or small, makes a meaningful
-              impact.
-            </Typography>
-
-            <Button
-              variant="contained"
-              size="large"
-              onClick={() => window.open("mailto:info@smaranfoundation.org")}
-              sx={{
-                px: 4,
-                py: 1.5,
-                fontSize: "1.1rem",
-                fontWeight: 600,
-                backgroundColor: theme.palette.secondary.main,
-                color: "white",
+                p: 4,
+                backgroundColor: theme.palette.primary.main,
                 borderRadius: 3,
-                boxShadow: "0 8px 25px rgba(244, 162, 97, 0.3)",
-                "&:hover": {
-                  backgroundColor: theme.palette.secondary.dark,
-                  boxShadow: "0 12px 35px rgba(244, 162, 97, 0.4)",
-                  transform: "translateY(-2px)",
-                },
-                transition: "all 0.3s ease-in-out",
+                color: "white",
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                position: "relative",
+                overflow: "hidden",
               }}
+              className={`${styles.ctaSection} ${
+                isVisible ? "fade-in visible" : "fade-in"
+              }`}
             >
-              Contact Us Today
-            </Button>
-          </Box>
-        </Box>
+              <Box className={styles.ctaPattern} />
+              <Box sx={{ position: "relative", zIndex: 2 }}>
+                <Typography
+                  variant={isMobile ? "h5" : "h4"}
+                  component="h3"
+                  sx={{
+                    fontWeight: 600,
+                    mb: 3,
+                  }}
+                >
+                  Get in Touch
+                </Typography>
+
+                <Typography
+                  variant="body1"
+                  sx={{
+                    mb: 4,
+                    opacity: 0.9,
+                    lineHeight: 1.6,
+                  }}
+                >
+                  Ready to make a difference? Fill out the form and we'll get
+                  back to you soon. Every conversation is a step towards
+                  positive change.
+                </Typography>
+
+                <Box sx={{ mb: 3 }}>
+                  <Typography variant="body2" sx={{ opacity: 0.8, mb: 1 }}>
+                    Or reach us directly:
+                  </Typography>
+                  <Typography variant="body2" sx={{ mb: 1 }}>
+                    📧 info@smaranfoundation.org
+                  </Typography>
+                  <Typography variant="body2">
+                    📞 +91-9663038407 / +91-8217492013
+                  </Typography>
+                </Box>
+              </Box>
+            </Box>
+          </Grid>
+        </Grid>
 
         <Box
           sx={{
