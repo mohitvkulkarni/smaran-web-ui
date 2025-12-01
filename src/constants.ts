@@ -86,7 +86,7 @@ export const TEAM: TeamMember[] = [
     image: "/assets/team_jagadeesh.png",
   },
   {
-    name: "Shravan Kumar",
+    name: "Pavan Kumar",
     role: "Executive Member and Volunteer",
     bio: "Shravan is a dynamic and energetic individual who volunteers his time and efforts with Smaran. His enthusiasm is evident in every task he takes on, whether it involves supporting events, assisting with outreach activities, or lending a helping hand wherever it is needed. Always approachable and ready to step in, he ensures that work is completed efficiently and with a positive spirit. His ability to connect with people makes him a valuable presence in community activities. Whether working with team members or engaging with the public, Shravan brings a sense of warmth and cooperation that encourages participation and teamwork. He is quick to adapt, willing to learn, and open to contributing in multiple ways. For Smaran, Shravan's presence adds energy and reliability to its initiatives. His willingness to take on responsibilities, no matter how big or small, reflects his commitment to the organization's goals. By combining his enthusiasm with a sincere interest in helping others, he plays an important role in supporting Smaran's work and fostering a spirit of service in the community.",
     image: "/assets/team_shravan.png",
