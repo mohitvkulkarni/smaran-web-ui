@@ -42,8 +42,8 @@ const Contact: React.FC = () => {
         <Email sx={{ fontSize: 32, color: theme.palette.secondary.main }} />
       ),
       title: "Email Us",
-      content: "info@smaranfoundation.org",
-      action: () => window.open("mailto:info@smaranfoundation.org"),
+      content: "sanjana@smaranfoundation.org",
+      action: () => window.open("mailto:sanjana@smaranfoundation.org"),
     },
     {
       icon: (
@@ -116,13 +116,13 @@ const Contact: React.FC = () => {
           >
             For queries, associations, and other information, contact us at{" "}
             <a
-              href="mailto:info@smaranfoundation.org"
+              href="mailto:sanjana@smaranfoundation.org"
               style={{
                 color: theme.palette.primary.main,
                 textDecoration: "none",
               }}
             >
-              info@smaranfoundation.org
+              sanjana@smaranfoundation.org
             </a>{" "}
             or call us at our Indian office @ +91-9663038407 / +91-8217492013 or
             submit a message below. We'll reach out to you soon.
@@ -243,7 +243,7 @@ const Contact: React.FC = () => {
                     Or reach us directly:
                   </Typography>
                   <Typography variant="body2" sx={{ mb: 1 }}>
-                    📧 info@smaranfoundation.org
+                    📧 sanjana@smaranfoundation.org
                   </Typography>
                   <Typography variant="body2">
                     📞 +91-9663038407 / +91-8217492013

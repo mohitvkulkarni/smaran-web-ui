@@ -48,18 +48,7 @@ const Footer: React.FC<FooterProps> = ({ onOpenPolicy }) => {
             >
               Smaran Foundation
             </Typography>
-            <Typography
-              variant="body2"
-              sx={{
-                mb: 3,
-                lineHeight: 1.6,
-                opacity: 0.9,
-              }}
-            >
-              A charitable trust dedicated to creating meaningful change in
-              communities across India through education, healthcare, disability
-              support, and sustainable development initiatives.
-            </Typography>
+
             <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
               <Email
                 sx={{
@@ -69,12 +58,12 @@ const Footer: React.FC<FooterProps> = ({ onOpenPolicy }) => {
                 }}
               />
               <Link
-                href="mailto:info@smaranfoundation.org"
+                href="mailto:sanjana@smaranfoundation.org"
                 color="inherit"
                 underline="hover"
                 sx={{ fontSize: "0.875rem" }}
               >
-                info@smaranfoundation.org
+                sanjana@smaranfoundation.org
               </Link>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center" }}>

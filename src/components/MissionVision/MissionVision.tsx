@@ -45,8 +45,8 @@ const MissionVision: React.FC = () => {
       }}
     >
       <Container maxWidth="lg">
-        <Grid container spacing={6} alignItems="center">
-          <Grid item xs={12} md={6}>
+        <Grid container spacing={6} alignItems="stretch">
+          <Grid item xs={12} md={6} sx={{ display: "flex" }}>
             <Card
               className={`${styles.missionCard} ${
                 isVisible ? "slide-in-left visible" : "slide-in-left"
@@ -59,10 +59,23 @@ const MissionVision: React.FC = () => {
                 boxShadow: "0 12px 40px rgba(46, 82, 102, 0.2)",
                 position: "relative",
                 overflow: "hidden",
+                minHeight: "400px",
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
               }}
             >
               <Box className={styles.cardPattern} />
-              <CardContent sx={{ position: "relative", zIndex: 2, p: 0 }}>
+              <CardContent
+                sx={{
+                  position: "relative",
+                  zIndex: 2,
+                  p: 0,
+                  flex: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
                 <Box sx={{ display: "flex", alignItems: "center", mb: 3 }}>
                   <TrackChanges
                     sx={{
@@ -111,7 +124,7 @@ const MissionVision: React.FC = () => {
             </Card>
           </Grid>
 
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={6} sx={{ display: "flex" }}>
             <Card
               className={`${styles.visionCard} ${
                 isVisible ? "slide-in-right visible" : "slide-in-right"
@@ -124,10 +137,23 @@ const MissionVision: React.FC = () => {
                 boxShadow: "0 12px 40px rgba(244, 162, 97, 0.2)",
                 position: "relative",
                 overflow: "hidden",
+                minHeight: "400px",
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
               }}
             >
               <Box className={styles.cardPattern} />
-              <CardContent sx={{ position: "relative", zIndex: 2, p: 0 }}>
+              <CardContent
+                sx={{
+                  position: "relative",
+                  zIndex: 2,
+                  p: 0,
+                  flex: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
                 <Box sx={{ display: "flex", alignItems: "center", mb: 3 }}>
                   <Visibility sx={{ fontSize: 40, mr: 2, color: "white" }} />
                   <Typography

@@ -45,7 +45,7 @@ describe("EmailService", () => {
         from_email: "john@example.com",
         phone: "+1234567890",
         message: "This is a test message",
-        to_email: "info@smaranfoundation.org",
+        to_email: "sanjana@smaranfoundation.org",
         reply_to: "john@example.com",
         subject: "Contact Form Submission from John Doe",
       },
@@ -110,7 +110,7 @@ describe("EmailService", () => {
     emailService.openMailtoFallback(mockFormData);
 
     expect(mockOpen).toHaveBeenCalledWith(
-      expect.stringContaining("mailto:info@smaranfoundation.org"),
+      expect.stringContaining("mailto:sanjana@smaranfoundation.org"),
       "_blank"
     );
 

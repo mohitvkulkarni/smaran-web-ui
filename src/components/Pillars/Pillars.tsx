@@ -8,7 +8,9 @@ import {
   CardContent,
   useTheme,
   useMediaQuery,
+  Button,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import {
   School,
   Accessible,
@@ -23,6 +25,7 @@ import styles from "./Pillars.module.scss";
 const Pillars: React.FC = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -205,6 +208,7 @@ const Pillars: React.FC = () => {
             sx={{
               color: theme.palette.text.secondary,
               lineHeight: 1.6,
+              mb: 4,
             }}
           >
             Each of these principles represents not just our commitment, but an

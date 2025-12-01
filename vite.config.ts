@@ -24,6 +24,11 @@ export default defineConfig({
       localsConvention: "camelCase",
       generateScopedName: "[name]__[local]___[hash:base64:5]",
     },
+    preprocessorOptions: {
+      scss: {
+        silenceDeprecations: ["legacy-js-api"],
+      },
+    },
   },
   resolve: {
     alias: {

@@ -73,7 +73,7 @@ class EmailService {
         `Message:\n${data.message}`
     );
 
-    const mailtoUrl = `mailto:info@smaranfoundation.org?subject=${subject}&body=${body}`;
+    const mailtoUrl = `mailto:sanjana@smaranfoundation.org?subject=${subject}&body=${body}`;
     window.open(mailtoUrl, "_blank");
   }
 }

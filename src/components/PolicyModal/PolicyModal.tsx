@@ -122,7 +122,7 @@ const PolicyModal: React.FC<PolicyModalProps> = ({
             }}
           >
             If you have any questions about this {title.toLowerCase()}, please
-            contact us at <strong>info@smaranfoundation.org</strong>
+            contact us at <strong>sanjana@smaranfoundation.org</strong>
           </Typography>
         </Box>
       </DialogContent>

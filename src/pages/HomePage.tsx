@@ -11,24 +11,27 @@ const HomePage: React.FC = () => {
   return (
     <Box>
       <Hero />
-      <Welcome />
 
       {/* Compassion in Action Section */}
       <Box
         sx={{
-          py: 6,
+          py: 10,
           backgroundColor: theme.palette.secondary.main,
           color: "white",
           textAlign: "center",
+          mt: 4,
+          mb: 4,
         }}
       >
         <Container maxWidth="lg">
           <Typography
-            variant="h4"
+            variant="h3"
             component="h2"
             sx={{
               fontWeight: 600,
               fontStyle: "italic",
+              fontSize: { xs: "2rem", md: "3rem" },
+              lineHeight: 1.2,
             }}
           >
             Compassion in Action. Change that Lasts.
@@ -38,6 +41,7 @@ const HomePage: React.FC = () => {
 
       <MissionVision />
       <Pillars />
+      <Welcome />
     </Box>
   );
 };

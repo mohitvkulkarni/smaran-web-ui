@@ -6,15 +6,17 @@ import {
   Grid,
   Card,
   CardContent,
+  Button,
   useTheme,
   useMediaQuery,
 } from "@mui/material";
 import { Favorite, People, School, EmojiObjects } from "@mui/icons-material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./Welcome.module.scss";
 
 const Welcome: React.FC = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -129,11 +131,11 @@ const Welcome: React.FC = () => {
               animationDelay: "0.1s",
             }}
           >
-            Smaran Foundation is a Bangalore-based Charitable Trust committed to
-            nurturing dignity, inclusion, and opportunity for all. We focus on
-            empowering the underprivileged through education, advocating for
-            mental health and well-being, supporting individuals with
-            disabilities, championing women's empowerment, environmental
+            Smaran Foundation is a Bangalore-based community-driven non-profit
+            committed to nurturing dignity, inclusion, and opportunity for all.
+            We focus on empowering the underprivileged through education,
+            advocating for mental health and well-being, supporting individuals
+            with disabilities, championing women's empowerment, environmental
             sustainability and offering compassionate disability and geriatric
             care.
           </Typography>
@@ -287,12 +289,77 @@ const Welcome: React.FC = () => {
               position: "relative",
               zIndex: 1,
               animationDelay: "0.5s",
+              mb: 4,
             }}
           >
             "Our mission is to create a society where every individual has the
             opportunity to live with dignity, access quality education and
             healthcare, and contribute meaningfully to their community."
           </Typography>
+
+          {/* CTA Buttons */}
+          <Box
+            sx={{
+              display: "flex",
+              gap: 2,
+              justifyContent: "center",
+              flexDirection: isMobile ? "column" : "row",
+              alignItems: "center",
+              position: "relative",
+              zIndex: 1,
+            }}
+          >
+            <Button
+              variant="contained"
+              size="large"
+              onClick={() => navigate("/about")}
+              sx={{
+                px: 5,
+                py: 2,
+                fontSize: "1.1rem",
+                fontWeight: 600,
+                backgroundColor: theme.palette.secondary.main,
+                color: "white",
+                borderRadius: 3,
+                boxShadow: `0 8px 25px rgba(212, 165, 116, 0.3)`,
+                textTransform: "none",
+                "&:hover": {
+                  backgroundColor: theme.palette.secondary.dark,
+                  boxShadow: `0 12px 35px rgba(212, 165, 116, 0.4)`,
+                  transform: "translateY(-2px)",
+                },
+                transition: "all 0.3s ease-in-out",
+              }}
+            >
+              Learn About Us
+            </Button>
+
+            <Button
+              variant="outlined"
+              size="large"
+              onClick={() => navigate("/contact")}
+              sx={{
+                px: 5,
+                py: 2,
+                fontSize: "1.1rem",
+                fontWeight: 600,
+                borderColor: "white",
+                color: "white",
+                borderRadius: 3,
+                borderWidth: 2,
+                textTransform: "none",
+                "&:hover": {
+                  borderColor: theme.palette.secondary.main,
+                  backgroundColor: theme.palette.secondary.main,
+                  color: "white",
+                  transform: "translateY(-2px)",
+                },
+                transition: "all 0.3s ease-in-out",
+              }}
+            >
+              Connect With Us
+            </Button>
+          </Box>
         </Box>
       </Container>
     </Box>
