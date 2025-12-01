@@ -8,7 +8,6 @@ import {
   CardContent,
   useTheme,
   useMediaQuery,
-  Button,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import {
@@ -25,7 +24,6 @@ import styles from "./Pillars.module.scss";
 const Pillars: React.FC = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
